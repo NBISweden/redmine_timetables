@@ -1,3 +1,4 @@
 = redmine_timetables
 
-Description goes here
+Redmine plugin for displaying users schedules.
+
