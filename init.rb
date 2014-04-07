@@ -4,5 +4,5 @@ Redmine::Plugin.register :redmine_timetables do
   description 'Timetables for Redmine'
   version '0.0.1'
   url 'http://example.com/path/to/plugin'
-  author_url 'http://example.com/about'
+  author_url 'http://bils.se/about'
 end
