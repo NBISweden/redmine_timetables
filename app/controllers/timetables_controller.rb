@@ -38,6 +38,8 @@ class TimetablesController < ApplicationController
   include IssuesHelper
   helper :timelog
   include Redmine::Export::PDF
+  helper :users
+  include UsersHelper
 
 
   def index

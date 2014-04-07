@@ -2,6 +2,11 @@
 <%= hidden_field_tag 'back_url', url_for(params), :id => nil %>
 
 <%= query.inspect %>
+      <% query.inline_columns.each do |column| %>
+        <%= column.to_s %>
+        <br>
+      <% end %>
+
 <br>
 <% for i in issues do -%>
 <%=h i.id  %>

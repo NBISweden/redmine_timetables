@@ -1,3 +1,10 @@
+<div class="contextual">
+<% if !@query.new_record? && @query.editable_by?(User.current) %>
+  <%= link_to l(:button_edit), edit_query_path(@query), :class => 'icon icon-edit' %>
+  <%= delete_link query_path(@query) %>
+<% end %>
+</div>
+
 <h2>Timetable</h2>
 
 
@@ -11,13 +18,29 @@
 <div id="query_form_content">
 <fieldset id="filters" class="collapsible <%= @query.new_record? ? "" : "collapsed" %>">
   <legend onclick="toggleFieldset(this);"><%= l(:label_filter_plural) %></legend>
+###
+<%= form_tag(users_path, :method => :get) do %>
+<fieldset><legend><%= l(:label_filter_plural) %></legend>
+
+<% if @groups.present? %>
+<label for='group_id'><%= l(:label_group) %>:</label>
+<%= select_tag 'group_id', content_tag('option') + options_from_collection_for_select(@groups, :id, :name, params[:group_id].to_i), :onchange => "this.form.submit(); return false;"  %>
+<% end %>
+
+<label for='name'><%= l(:label_user) %>:</label>
+<%= text_field_tag 'name', params[:name], :size => 30 %>
+<%= submit_tag l(:button_apply), :class => "small", :name => nil %>
+</fieldset>
+<% end %>
+&nbsp;
+###
   <div style="<%= @query.new_record? ? "" : "display: none;" %>">
     <%= render :partial => 'queries/filters', :locals => {:query => @query} %>
   </div>
 </fieldset>
 </div>
     <p class="buttons">
-    <%= link_to_function l(:button_apply), 'submit_query_form("query_form")', :class => 'icon icon-checked' %>
+    <%= link_to_function l(:button_apply), '$("#query_form").submit()', :class => 'icon icon-checked' %>
     <%= link_to l(:button_clear), { :set_filter => 1, :project_id => @project }, :class => 'icon icon-reload'  %>
     <% if @query.new_record? && User.current.allowed_to?(:save_queries, @project, :global => true) %>
         <%= link_to_function l(:button_save),
@@ -26,7 +49,6 @@
     <% end %>
     </p>
   </div>
-
 <% end %>
 
 <%= error_messages_for 'query' %>
