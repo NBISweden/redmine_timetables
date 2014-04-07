@@ -1,0 +1,11 @@
+<%= form_tag({}) do -%>
+<%= hidden_field_tag 'back_url', url_for(params), :id => nil %>
+
+<%= query.inspect %>
+<br>
+<% for i in issues do -%>
+<%=h i.id  %>
+<br>
+<% end -%>
+<% end -%>
+
