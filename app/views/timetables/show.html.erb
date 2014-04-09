@@ -1,26 +1,9 @@
-<div class="contextual">
-<% if !@query.new_record? && @query.editable_by?(User.current) %>
-  <%= link_to l(:button_edit), edit_query_path(@query), :class => 'icon icon-edit' %>
-  <%= delete_link query_path(@query) %>
-<% end %>
-</div>
-
 <h2>Timetable</h2>
 
-
-<%= form_tag({:controller => 'timetables', :action => 'show',
-             :project_id => @project, :month => params[:month],
-             :year => params[:year], :months => params[:months]},
-             :method => :get, :id => 'query_form') do %>
-<div id="query_form_with_buttons" class="hide-when-print">
-<%= hidden_field_tag 'set_filter', '1' %>
-<%= hidden_field_tag 'timetable', '1' %>
-<div id="query_form_content">
-<fieldset id="filters" class="collapsible <%= @query.new_record? ? "" : "collapsed" %>">
-  <legend onclick="toggleFieldset(this);"><%= l(:label_filter_plural) %></legend>
-###
-<%= form_tag(users_path, :method => :get) do %>
+<%= form_tag({controller => :timetables, :action => :show}, :method => :get) do %>
 <fieldset><legend><%= l(:label_filter_plural) %></legend>
+<label for='status'><%= l(:field_status) %>:</label>
+<%= select_tag 'status', users_status_options_for_select(@status), :class => "small", :onchange => "this.form.submit(); return false;"  %>
 
 <% if @groups.present? %>
 <label for='group_id'><%= l(:label_group) %>:</label>
@@ -30,34 +13,29 @@
 <label for='name'><%= l(:label_user) %>:</label>
 <%= text_field_tag 'name', params[:name], :size => 30 %>
 <%= submit_tag l(:button_apply), :class => "small", :name => nil %>
+<%= link_to l(:button_clear), {controller => :timetables, :action => :show}, :class => 'icon icon-reload' %>
 </fieldset>
 <% end %>
 &nbsp;
-###
-  <div style="<%= @query.new_record? ? "" : "display: none;" %>">
-    <%= render :partial => 'queries/filters', :locals => {:query => @query} %>
-  </div>
-</fieldset>
+
+<div class="autoscroll">
+<table class="list">
+  <tbody>
+<% for user in @users -%>
+  <tr class="<%= user.css_classes %> <%= cycle("odd", "even") %>">
+  <td class="username"><%= avatar(user, :size => "14") %><%= link_to h(user.login), edit_user_path(user) %></td>
+  <td class="firstname"><%= h(user.firstname) %></td>
+  <td class="lastname"><%= h(user.lastname) %></td>
+<table class="list">
+  <tbody>
+  <% for i in issues_for_user(user.id) -%>
+    <tr> <%= i.id %> </tr>
+  <% end -%>
+  </tbody>
+  </tr>
+<% end -%>
+  </tbody>
+</table>
 </div>
-    <p class="buttons">
-    <%= link_to_function l(:button_apply), '$("#query_form").submit()', :class => 'icon icon-checked' %>
-    <%= link_to l(:button_clear), { :set_filter => 1, :project_id => @project }, :class => 'icon icon-reload'  %>
-    <% if @query.new_record? && User.current.allowed_to?(:save_queries, @project, :global => true) %>
-        <%= link_to_function l(:button_save),
-                             "$('#query_form').attr('action', '#{ @project ? new_project_query_path(@project) : new_query_path }'); submit_query_form('query_form')",
-                             :class => 'icon icon-save' %>
-    <% end %>
-    </p>
-  </div>
-<% end %>
 
-<%= error_messages_for 'query' %>
-<% if @query.valid? %>
-<% if @issues.empty? %>
-<p class="nodata"><%= l(:label_no_data) %></p>
-<% else %>
-<%= render :partial => 'timetables/table', :locals => {:issues => @issues, :query => @query} %>
-<% end %>
-<% end %>
-
-
+<% html_title("Timetable") -%>
