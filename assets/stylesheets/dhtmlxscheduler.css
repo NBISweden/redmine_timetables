@@ -234,19 +234,19 @@ div.dhx_modal_cover {
 	top:0px;
 }
 .dhx_cal_prev_button{
-	background-image:url(imgs/buttons.png);
+	background-image:url(../images/imgs/buttons.png);
 	background-position:0px 0px;
 	width:29px; height:17px;
 	left:50px; cursor:pointer;
 }
 .dhx_cal_next_button{
-	background-image:url(imgs/buttons.png);
+	background-image:url(../images/imgs/buttons.png);
 	background-position: -30px 0px;
 	width:29px; height:17px;
 	left:80px; cursor:pointer;
 }
 .dhx_cal_today_button{
-	background-image:url(imgs/buttons.png);
+	background-image:url(../images/imgs/buttons.png);
 	background-position: -60px 0px;
 	width:75px; height:17px;
 	left:112px; cursor:pointer;
@@ -314,12 +314,12 @@ div.dhx_modal_cover {
 .dhx_scale_holder{
 	position:absolute;	
 	border-right:1px dotted #586A7E;
-	background-image:url(imgs/databg.png);
+	background-image:url(../images/imgs/databg.png);
 }
 .dhx_scale_holder_now{
 	position:absolute;	
 	border-right:1px dotted #586A7E;
-	background-image:url(imgs/databg_now.png);
+	background-image:url(../images/imgs/databg_now.png);
 }
 .dhx_scale_hour{
 	height:41px;
@@ -371,7 +371,7 @@ div.dhx_modal_cover {
 	position:absolute;
 	width:128px;
 	height:15px;
-	background-image:url(imgs/loading.gif);
+	background-image:url(../images/imgs/loading.gif);
 	z-index:9999;
 }
 .dhx_multi_day_icon, .dhx_multi_day{
@@ -391,10 +391,10 @@ div.dhx_modal_cover {
 	border-right:1px dotted #8894A3;
 }
 .dhx_multi_day_icon{
-	background-image:url(imgs/clock_big.gif);
+	background-image:url(../images/imgs/clock_big.gif);
 }
 .dhx_multi_day_icon_small{
-	background-image:url(imgs/clock_small.gif);
+	background-image:url(../images/imgs/clock_small.gif);
 
 }
 .dhtmlxLayoutPolyContainer_dhx_skyblue 	.dhx_cal_container {
@@ -416,11 +416,11 @@ div.dhx_modal_cover {
 }
 .dhx_cal_navline .dhx_cal_export.pdf{
     left: 2px;
-    background-image:url('imgs/export_pdf.png');
+    background-image:url('../images/imgs/export_pdf.png');
 }
 .dhx_cal_navline .dhx_cal_export.ical{
     left: 24px;
-    background-image:url('imgs/export_ical.png');
+    background-image:url('../images/imgs/export_ical.png');
 }
 /* export to PDF and iCal buttons end */
 .dhx_cal_event .dhx_header, .dhx_cal_event .dhx_title, .dhx_cal_event .dhx_body, .dhx_cal_event .dhx_footer {
@@ -515,7 +515,7 @@ textarea.dhx_cal_editor {
 	overflow: auto;
 }
 div.dhx_menu_head{
-	background-image:url(imgs/controls.gif);
+	background-image:url(../images/imgs/controls.gif);
 	background-position: 0px -43px;
 	width:10px; height:10px;
 	margin-left:5px; margin-top:1px;
@@ -523,7 +523,7 @@ div.dhx_menu_head{
 	cursor:default;
 }
 div.dhx_menu_icon{
-	background-image:url(imgs/controls.gif);
+	background-image:url(../images/imgs/controls.gif);
 	width:20px; height:20px;
 	margin-left:-5px; margin-top:0px;
 	border:none;
@@ -609,7 +609,7 @@ div.icon_delete{
 }
 .dhx_mark{
     position:relative; top:3px;
-    background-image:url('./imgs/controls.gif');
+    background-image:url('../images/imgs/controls.gif');
     background-position: 0px -43px;
     padding-left:10px;
 }
@@ -698,18 +698,18 @@ div.icon_delete{
     cursor:pointer;
 }
 .dhx_save_btn{
-    background-image:url('./imgs/controls.gif');
+    background-image:url('../images/imgs/controls.gif');
     background-position:-84px 0px;
     width:21px;
 
 }
 .dhx_cancel_btn{
-    background-image:url('./imgs/controls.gif');
+    background-image:url('../images/imgs/controls.gif');
     background-position:-63px 0px;
     width:20px;
 }
 .dhx_delete_btn{
-    background-image:url('./imgs/controls.gif');
+    background-image:url('../images/imgs/controls.gif');
     background-position:-42px 0px;
     width:20px;
 }
@@ -831,19 +831,19 @@ div.icon_delete{
 }
 .dhx_expand_icon {
 	position:absolute; top:0px; right:0px; 
-	background-image:url(./imgs/collapse_expand_icon.gif);
+	background-image:url(../images/imgs/collapse_expand_icon.gif);
 	width:18px; height:18px;
 	cursor:pointer;
 	background-position:0px 18px;
 	z-index:16;
 }
 .dhx_scheduler_agenda .dhx_cal_data {
-	background-image:url(./imgs/databg.png);
+	background-image:url(../images/imgs/databg.png);
 }
 .dhx_agenda_area{
 	width:100%;
 	overflow-y:auto;
-	background-image:url(./imgs/databg.png);
+	background-image:url(../images/imgs/databg.png);
 }
 .dhx_agenda_line{
 	height:21px;
@@ -872,7 +872,7 @@ div.icon_delete{
 .dhx_agenda_line .dhx_event_icon{
 	width:20px;
 	border-width:0px;
-	background:url(./imgs/icon.png) no-repeat;
+	background:url(../images/imgs/icon.png) no-repeat;
 	background-position: 5px 4px;
 	cursor:pointer;
 }
@@ -913,7 +913,7 @@ div.icon_delete{
 }
 .dhx_year_tooltip{
   border:1px solid #BBBBBB;
-  background-image:url(./imgs/databg.png);
+  background-image:url(../images/imgs/databg.png);
   position:absolute;
   z-index:9998;
   width:300px; 
@@ -935,7 +935,7 @@ div.icon_delete{
 	float:left;
 	border-width:0px;
 	position:relative;
-	background:url(./imgs/icon.png) no-repeat;
+	background:url(../images/imgs/icon.png) no-repeat;
 	background-position: 5px 4px;
 	cursor:pointer;
 }
@@ -974,7 +974,7 @@ div.icon_delete{
 	left:190px;
 	top:1px;
 	cursor:pointer;
-	background-image:url(./imgs/calendar.gif);
+	background-image:url(../images/imgs/calendar.gif);
 }
 
 .dhx_matrix_scell {
@@ -1008,7 +1008,7 @@ div.icon_delete{
 }
 .dhx_cal_event_line .dhx_event_resize {
 	cursor: w-resize;
-	background: url(./imgs/resize_dots.png) repeat-y;
+	background: url(../images/imgs/resize_dots.png) repeat-y;
 	position: absolute;
 	top: 0;
 	width: 4px;
@@ -1077,12 +1077,12 @@ div.icon_delete{
 	height:100%;
 	overflow-y: auto;
 	overflow-x: hidden;
-	background-image:url(./imgs/databg.png);
+	background-image:url(../images/imgs/databg.png);
 }
 .dhx_map_line .dhx_event_icon{
 	width:20px;
 	border-width:0px;
-	background:url(./imgs/icon.png) no-repeat;
+	background:url(../images/imgs/icon.png) no-repeat;
 	background-position: 5px 4px;
 	cursor:pointer;
 }
@@ -1329,7 +1329,7 @@ div.icon_delete{
 	border:none !important;
 	top: 5px;
 	background-repeat:no-repeat;
-	background-image: url(./imgs/images.png);
+	background-image: url(../images/imgs/images.png);
 }
 /* end grid */
 
@@ -1557,7 +1557,7 @@ input.dhx_repeat_checkbox {
     border-radius: 4px;
 }
 .dhx_custom_button_recurring{
-	background-image:url(./imgs/but_repeat.gif);
+	background-image:url(../images/imgs/but_repeat.gif);
 	background-position:-5px 20px;
 	width:20px;
 	margin-right:10px;
@@ -1611,7 +1611,7 @@ input.dhx_repeat_checkbox {
 	height: 5px;
 	border: 0;
 	margin-top: -6px;
-	background: url(imgs_dhx_terrace/resizing.png) no-repeat center center;
+	background: url(../images/imgs_dhx_terrace/resizing.png) no-repeat center center;
 }
 
 .dhx_cal_event .dhx_header, .dhx_cal_event .dhx_footer, .dhx_cal_event .dhx_body, .dhx_cal_event .dhx_title {
@@ -1631,7 +1631,7 @@ div.dhx_cal_editor {
 }
 
 div.dhx_menu_head, div.dhx_menu_icon {
-	background-image: url(imgs_dhx_terrace/controls.png);
+	background-image: url(../images/imgs_dhx_terrace/controls.png);
 }
 
 .dhx_cal_event_line {
@@ -1677,12 +1677,12 @@ div.dhx_menu_head, div.dhx_menu_icon {
 	border-top: 1px solid #CECECE;
 }
 .dhx_scale_holder {
-	background-image: url(imgs_dhx_terrace/databg.png);
+	background-image: url(../images/imgs_dhx_terrace/databg.png);
 	border-right: 1px solid #CECECE;
 }
 
 .dhx_scale_holder_now {
-	background-image: url(imgs_dhx_terrace/databg_now.png);
+	background-image: url(../images/imgs_dhx_terrace/databg_now.png);
 	border-right: 1px solid #CECECE;
 }
 
@@ -1756,7 +1756,7 @@ div.dhx_menu_head, div.dhx_menu_icon {
 }
 .dhx_cal_prev_button {
 	right: 61px;
-	background: url(imgs_dhx_terrace/arrow_left.png) no-repeat center center;
+	background: url(../images/imgs_dhx_terrace/arrow_left.png) no-repeat center center;
 	-webkit-border-top-left-radius:5px;
 	-webkit-border-bottom-left-radius:5px;
 	-moz-border-radius-topleft:5px;
@@ -1766,7 +1766,7 @@ div.dhx_menu_head, div.dhx_menu_icon {
 }
 .dhx_cal_next_button {
 	right: 14px;
-	background: url(imgs_dhx_terrace/arrow_right.png) no-repeat center center;
+	background: url(../images/imgs_dhx_terrace/arrow_right.png) no-repeat center center;
 	-webkit-border-top-right-radius:5px;
 	-webkit-border-bottom-right-radius:5px;
 	-moz-border-radius-topright:5px;
@@ -1825,10 +1825,10 @@ div.dhx_menu_head, div.dhx_menu_icon {
 	border-right: 1px solid #CECECE;
 }
 .dhx_multi_day_icon_small {
-	background-image: url(imgs_dhx_terrace/clock_small.gif);
+	background-image: url(../images/imgs_dhx_terrace/clock_small.gif);
 }
 .dhx_multi_day_icon {
-	background-image: url(imgs_dhx_terrace/clock_big.gif);
+	background-image: url(../images/imgs_dhx_terrace/clock_big.gif);
 }
 /* navigation end */
 
@@ -1961,7 +1961,7 @@ div.dhx_menu_head, div.dhx_menu_icon {
 	float: right;
 	width: 9px;
 	height: 9px;
-	background: url(imgs_dhx_terrace/close_icon.png) no-repeat center center;
+	background: url(../images/imgs_dhx_terrace/close_icon.png) no-repeat center center;
 	padding: 10px;
 	margin-top: 1px;
 }
@@ -2043,13 +2043,13 @@ div.dhx_menu_head, div.dhx_menu_icon {
 	left:210px;
 	top:14px;
 	width:30px; height:30px;
-	background: url(./imgs_dhx_terrace/calendar.gif) no-repeat;
+	background: url(../images/imgs_dhx_terrace/calendar.gif) no-repeat;
 	background-position: 3px 5px; 
 }
 
 /* timeline */
 .dhx_cal_event_line .dhx_event_resize {
-	background: url(./imgs_dhx_terrace/resize_dots.png) repeat-y;
+	background: url(../images/imgs_dhx_terrace/resize_dots.png) repeat-y;
 }
 .dhx_matrix_scell, .dhx_matrix_cell {
 	border-bottom: 1px solid #CECECE;
@@ -2080,7 +2080,7 @@ div.dhx_menu_head, div.dhx_menu_icon {
 	margin-top: 6px;
 }
 .dhx_custom_button_recurring {
-	background-image: url(./imgs_dhx_terrace/but_repeat.gif);
+	background-image: url(../images/imgs_dhx_terrace/but_repeat.gif);
 }
 /* recurring end */
 
@@ -2211,12 +2211,12 @@ div.dhx_menu_head, div.dhx_menu_icon {
 .dhx_cal_navline .dhx_cal_export.pdf{
     left: auto;
     right: 249px;
-    background-image:url('imgs_dhx_terrace/export_pdf.png');
+    background-image:url('../images/imgs_dhx_terrace/export_pdf.png');
 }
 .dhx_cal_navline .dhx_cal_export.ical{
     left: auto;
     right: 210px;
-    background-image:url('imgs_dhx_terrace/export_ical.png');
+    background-image:url('../images/imgs_dhx_terrace/export_ical.png');
 }
 /* export to PDF and iCal buttons end */
 

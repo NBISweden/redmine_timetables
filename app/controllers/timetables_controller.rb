@@ -16,7 +16,7 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 class TimetablesController < ApplicationController
-  layout 'admin'
+  layout 'ttbase'
 
   before_filter :require_admin, :except => :show
   skip_before_filter :find_user
