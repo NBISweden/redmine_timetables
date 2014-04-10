@@ -29,7 +29,7 @@
 <table class="list">
   <tbody>
   <% for i in issues_for_user(user.id) -%>
-    <tr> <%= i.id %> </tr>
+    <tr> <%= i.id %> <%=i.start_date %>; </tr>
   <% end -%>
   </tbody>
   </tr>
@@ -38,4 +38,37 @@
 </table>
 </div>
 
+<div id="scheduler_here" class="dhx_cal_container" style='width:100%; height:100%;'>
+    <div class="dhx_cal_navline">
+        <div class="dhx_cal_prev_button">&nbsp;</div>
+        <div class="dhx_cal_next_button">&nbsp;</div>
+        <div class="dhx_cal_today_button"></div>
+        <div class="dhx_cal_date"></div>
+        <div class="dhx_cal_tab" name="day_tab" style="right:204px;"></div>
+        <div class="dhx_cal_tab" name="week_tab" style="right:140px;"></div>
+        <div class="dhx_cal_tab" name="month_tab" style="right:76px;"></div>
+    </div>
+    <div class="dhx_cal_header"></div>
+    <div class="dhx_cal_data"></div>       
+</div>
+
+
 <% html_title("Timetable") -%>
+
+<script type="text/javascript" >
+scheduler.init('scheduler_here', new Date(),"month");
+var events = [
+{id:1, text:"Meeting",   start_date:"04/11/2013 14:00",end_date:"04/11/2013 17:00"},
+{id:2, text:"Conference",start_date:"04/15/2013 12:00",end_date:"04/18/2013 19:00"},
+{id:3, text:"Interview", start_date:"04/24/2013 09:00",end_date:"04/24/2013 10:00"}
+];
+ 
+scheduler.parse("events", "json");//takes the name and format of the data source
+</script>
+
+<% content_for :header_tags do %>
+    <%= javascript_include_tag 'dhtmlxscheduler', :plugin => 'redmine_timetables' %>
+    <%= stylesheet_link_tag 'dhtmlxscheduler', :plugin => 'redmine_timetables' %>
+    <%= image_tag 'arrow_left.png', :plugin => 'redmine_timetables' %>
+<% end %>
+
