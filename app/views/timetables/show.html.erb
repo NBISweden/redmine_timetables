@@ -20,7 +20,6 @@
 
 <% usernames = @users.collect{|u| u.firstname + " " + u.lastname } %>
 <%= usernames.join(";") %>
-<%= issues_for_user(@users[0])[1].start_date %>
 
 <br>
 <div class="autoscroll">
@@ -60,10 +59,11 @@
 function init(){
 		var sections=[
                         <% usernames.each_with_index do |un,i|  %>
-                           <%= raw "{key:#{i}, label:\'#{un}\'},\n" %>
+                           <%= raw "{key:#{i+1}, label:\'#{un}\'},\n" %>
                         <% end %>
 		];
 		
+scheduler.config.xml_date="%Y-%m-%d";
 		scheduler.createTimelineView({
 			name:	"timeline",
 			x_unit:	"day",
@@ -81,10 +81,13 @@ scheduler.init('scheduler_here', new Date(),"timeline");
 		scheduler.parse([
 <% @users.each_with_index do |user, ui| -%>
   <% for i in issues_for_user(user.id) -%>
-    <%= raw "{ start_date: \"#{i.start_date} 09:00\", end_date: \"#{i.due_date} 17:00\", text:\"#{i.subject}\", section_id:#{ui}},\n" =%>
+    <% if i.start_date && i.due_date %> 
+    <%= raw "{ start_date: \"#{i.start_date}\", end_date: \"#{i.due_date}\", text:\"#{i.subject}\", section_id:#{ui+1}},\n" =%>
+	  <% end %>
   <% end %>
 <% end %>
 		],"json");
+//alert(scheduler.toJSON);
 }
 </script>
 
