@@ -2,8 +2,6 @@
 
 <%= form_tag({controller => :timetables, :action => :show}, :method => :get) do %>
 <fieldset><legend><%= l(:label_filter_plural) %></legend>
-<label for='status'><%= l(:field_status) %>:</label>
-<%= select_tag 'status', users_status_options_for_select(@status), :class => "small", :onchange => "this.form.submit(); return false;"  %>
 
 <% if @groups.present? %>
 <label for='group_id'><%= l(:label_group) %>:</label>
@@ -55,7 +53,7 @@ scheduler.attachEvent("onClick", function (id, e) {
 scheduler.createTimelineView({
          name:	"timeline",
          x_unit:	"day",
-         x_date:	"%M %d",
+         x_date:	"%d",
          x_step:	1,
          x_size: 30,
          dy: 25,
@@ -63,6 +61,7 @@ scheduler.createTimelineView({
          y_property:	"section_id",
          render:"bar",
          section_autoheight:"false",
+         second_scale: {x_unit: "month", x_date: "%M"}
 });
 		
 scheduler.init('scheduler_here', new Date(),"timeline");
@@ -70,7 +69,7 @@ scheduler.init('scheduler_here', new Date(),"timeline");
 <% @users.each do |user| -%>
   <% for i in issues_for_user(user.id) -%>
     <% if i.start_date && i.due_date %> 
-    <%= raw "{ start_date: \"#{i.start_date}\", end_date: \"#{i.due_date}\", text:\"##{i.id}: #{i.subject}\", section_id:#{user.id}},\n" =%>
+<%= raw "{ start_date: \"#{i.start_date}\", end_date: \"#{i.due_date}\", text:\"##{i.id}: "%><%="#{i.subject}"%><%= raw "\", section_id:#{user.id}},\n" =%>
 	  <% end %>
   <% end %>
 <% end %>
