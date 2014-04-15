@@ -45,25 +45,32 @@ function init(){
 		
 scheduler.config.xml_date="%Y-%m-%d";
 scheduler.config.readonly = true;
-		scheduler.createTimelineView({
-			name:	"timeline",
-			x_unit:	"day",
-			x_date:	"%M %d",
-			x_step:	1,
-			x_size: 30,
-                        dy: 25,
-			y_unit:	sections,
-			y_property:	"section_id",
-			render:"bar",
-                        section_autoheight:"false",
-		});
+scheduler.attachEvent("onClick", function (id, e) {
+         var obj = scheduler.getActionData(e);
+         var str = e.explicitOriginalTarget.textContent;
+         var re = /^#([0-9]+):/;
+         str.match(re);
+         location.href="/issues/"+str.match(re).pop();
+});
+scheduler.createTimelineView({
+         name:	"timeline",
+         x_unit:	"day",
+         x_date:	"%M %d",
+         x_step:	1,
+         x_size: 30,
+         dy: 25,
+         y_unit:	sections,
+         y_property:	"section_id",
+         render:"bar",
+         section_autoheight:"false",
+});
 		
 scheduler.init('scheduler_here', new Date(),"timeline");
 		scheduler.parse([
 <% @users.each do |user| -%>
   <% for i in issues_for_user(user.id) -%>
     <% if i.start_date && i.due_date %> 
-    <%= raw "{ start_date: \"#{i.start_date}\", end_date: \"#{i.due_date}\", text:\"#{i.subject}\", section_id:#{user.id}},\n" =%>
+    <%= raw "{ start_date: \"#{i.start_date}\", end_date: \"#{i.due_date}\", text:\"##{i.id}: #{i.subject}\", section_id:#{user.id}},\n" =%>
 	  <% end %>
   <% end %>
 <% end %>
