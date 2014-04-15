@@ -18,30 +18,10 @@
 <% end %>
 &nbsp;
 
-<% usernames = @users.collect{|u| u.firstname + " " + u.lastname } %>
-<%= usernames.join(";") %>
-
 <br>
 <div class="autoscroll">
-<table class="list">
-  <tbody>
-<% for user in @users -%>
-  <tr class="<%= user.css_classes %> <%= cycle("odd", "even") %>">
-  <td class="username"><%= avatar(user, :size => "14") %><%= link_to h(user.login), edit_user_path(user) %></td>
-  <td class="firstname"><%= h(user.firstname) %></td>
-  <td class="lastname"><%= h(user.lastname) %></td>
-<table class="list">
-  <tbody>
-  <% for i in issues_for_user(user.id) -%>
-    <tr> <%= i.id %> <%=i.start_date %>; </tr>
-  <% end -%>
-  </tbody>
-  </tr>
-<% end -%>
-  </tbody>
-</table>
 
-<div id="scheduler_here" class="dhx_cal_container" style='width:100%; height:500px;padding:5px;'>
+<div id="scheduler_here" class="dhx_cal_container" style='width:90%;height:500px;padding:10px;margin:0px'>
     <div class="dhx_cal_navline">
         <div class="dhx_cal_prev_button">&nbsp;</div>
         <div class="dhx_cal_next_button">&nbsp;</div>
@@ -58,8 +38,8 @@
 <script type="text/javascript" charset="utf-8" >
 function init(){
 		var sections=[
-                        <% usernames.each_with_index do |un,i|  %>
-                           <%= raw "{key:#{i+1}, label:\'#{un}\'},\n" %>
+                        <% @users.each do |u|  %>
+                           <%= raw "{key:#{u.id}, label:\'" %><%= raw avatar(u, :size => "14") %><%= raw link_to h(u.login), user_path(u)%><%= raw "\'},\n" %>
                         <% end %>
 		];
 		
@@ -79,10 +59,10 @@ scheduler.config.xml_date="%Y-%m-%d";
 		
 scheduler.init('scheduler_here', new Date(),"timeline");
 		scheduler.parse([
-<% @users.each_with_index do |user, ui| -%>
+<% @users.each do |user| -%>
   <% for i in issues_for_user(user.id) -%>
     <% if i.start_date && i.due_date %> 
-    <%= raw "{ start_date: \"#{i.start_date}\", end_date: \"#{i.due_date}\", text:\"#{i.subject}\", section_id:#{ui+1}},\n" =%>
+    <%= raw "{ start_date: \"#{i.start_date}\", end_date: \"#{i.due_date}\", text:\"#{i.subject}\", section_id:#{user.id}},\n" =%>
 	  <% end %>
   <% end %>
 <% end %>
@@ -95,5 +75,6 @@ scheduler.init('scheduler_here', new Date(),"timeline");
     <%= javascript_include_tag 'dhtmlxscheduler', :plugin => 'redmine_timetables' %>
     <%= javascript_include_tag 'ext/dhtmlxscheduler_timeline', :plugin => 'redmine_timetables' %>
     <%= stylesheet_link_tag 'dhtmlxscheduler', :plugin => 'redmine_timetables' %>
+    <%= stylesheet_link_tag 'dhtmlxschedulerfix', :plugin => 'redmine_timetables' %>
 <% end %>
 
