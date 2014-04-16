@@ -18,9 +18,8 @@
 class TimetablesController < ApplicationController
   layout 'ttbase'
 
-  before_filter :require_admin, :except => :show
+  before_filter :require_admin
   skip_before_filter :find_user
-  accept_api_auth :show
 
   helper :sort
   include SortHelper
