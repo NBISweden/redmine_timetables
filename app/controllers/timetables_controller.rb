@@ -18,8 +18,11 @@
 class TimetablesController < ApplicationController
   layout 'ttbase'
 
-  before_filter :require_admin
+  before_filter :find_optional_project
+
+  #before_filter :require_admin unless params[:project_id]
   skip_before_filter :find_user
+
 
   helper :sort
   include SortHelper
@@ -29,7 +32,9 @@ class TimetablesController < ApplicationController
   include TimetableHelper
 
 
+
   def show
+    return false if (!params[:project_id] && !require_admin)
     sort_init 'login', 'asc'
     sort_update %w(login firstname lastname mail admin created_on last_login_on)
 
@@ -73,4 +78,13 @@ class TimetablesController < ApplicationController
   rescue ActiveRecord::RecordNotFound
     render_404
   end
+
+  def find_optional_project
+    return true unless params[:project_id]
+    @project = Project.find(params[:project_id])
+    check_project_privacy
+  rescue ActiveRecord::RecordNotFound
+    render_404
+  end
+
 end

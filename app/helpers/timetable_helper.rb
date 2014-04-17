@@ -34,4 +34,8 @@ module TimetableHelper
       all
   end
 
+  def ttusers
+    @project ? @project.users : @users
+  end
+      
 end

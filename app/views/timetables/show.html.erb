@@ -1,5 +1,6 @@
 <h2>Timetable</h2>
 
+<% if !@project %>
 <%= form_tag({controller => :timetables, :action => :show}, :method => :get) do %>
 <fieldset><legend><%= l(:label_filter_plural) %></legend>
 
@@ -15,6 +16,7 @@
 </fieldset>
 <% end %>
 &nbsp;
+<% end %>
 
 <br>
 <div class="autoscroll">
@@ -36,7 +38,7 @@
 <script type="text/javascript" charset="utf-8" >
 function init(){
 		var sections=[
-                        <% @users.each do |u|  %>
+                        <% ttusers.each do |u|  %>
                            <%= raw "{key:#{u.id}, label:\'" %><%= raw avatar(u, :size => "14") %><%= raw link_to h(u.login), user_path(u)%><%= raw "\'},\n" %>
                         <% end %>
 		];
@@ -66,15 +68,14 @@ scheduler.createTimelineView({
 		
 scheduler.init('scheduler_here', new Date(),"timeline");
 		scheduler.parse([
-<% @users.each do |user| -%>
+<% ttusers.each do |user| -%>
   <% for i in issues_for_user(user.id) -%>
-    <% if i.start_date && i.due_date %> 
-<%= raw "{ start_date: \"#{i.start_date}\", end_date: \"#{i.due_date}\", text:\"##{i.id}: "%><%="#{i.subject}"%><%= raw "\", section_id:#{user.id}},\n" =%>
+    <% if User.current.allowed_to?(:view_issues, i.project) && i.start_date && i.due_date %> 
+<%= raw "{ start_date: \"#{i.start_date}\", end_date: \"#{i.due_date}\", text:\"##{i.id}: "%><%="#{i.subject} (#{i.project.name})"%><%= raw "\", section_id:#{user.id}},\n" =%>
 	  <% end %>
   <% end %>
 <% end %>
 		],"json");
-//alert(scheduler.toJSON);
 }
 </script>
 
