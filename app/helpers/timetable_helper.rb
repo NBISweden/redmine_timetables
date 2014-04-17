@@ -26,12 +26,17 @@ module TimetableHelper
                         ["#{l(:status_locked)} (#{user_count_by_status[3].to_i})", '3']], selected.to_s)
   end
 
-  def issues_for_user(id)
-    Issue.visible.
+  def issues_for_user(id, proj = nil)
+    iarr = Issue.visible.
       where(:assigned_to_id => id).
       includes(:status, :project, :tracker).
       order("#{Issue.table_name}.updated_on DESC").
       all
+    if(proj)
+      return iarr.find_all{|i| i.project == proj}
+    else
+      return iarr
+    end
   end
 
   def ttusers
