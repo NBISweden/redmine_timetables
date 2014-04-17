@@ -33,7 +33,7 @@ module TimetableHelper
       order("#{Issue.table_name}.updated_on DESC").
       all
     if(proj)
-      return iarr.find_all{|i| i.project == proj}
+      return iarr.find_all{|i| i.project == proj || proj.descendants.include?(i.project)}
     else
       return iarr
     end
