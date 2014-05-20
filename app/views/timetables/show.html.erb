@@ -38,7 +38,7 @@
 <script type="text/javascript" charset="utf-8" >
 function init(){
 		var sections=[
-                        <% ttusers.each do |u|  %>
+                        <% ttusers.sort_by{|u| u.login}.each do |u|  %>
                            <%= raw "{key:#{u.id}, label:\'" %><%= raw avatar(u, :size => "14") %><%= raw link_to h(u.login), user_path(u)%><%= raw "\'},\n" %>
                         <% end %>
 		];
