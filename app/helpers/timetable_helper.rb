@@ -40,7 +40,7 @@ module TimetableHelper
   end
 
   def ttusers
-    @project ? @project.users : User.where(:status => 1)
+    @project ? @project.users : @users
   end
       
 end
