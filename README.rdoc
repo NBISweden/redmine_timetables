@@ -2,6 +2,8 @@
 
 Redmine plugin for displaying users schedules using the [dhtmlx scheduler](http://dhtmlx.com/docs/products/dhtmlxScheduler/index.shtml).
 
+The overall schedule is available as a new view in the Administration section of redmine. In addition, every project with the Timetables module enabled with have a project-specific timetable.
+
 ==Author
 
 * Mikael Borg
