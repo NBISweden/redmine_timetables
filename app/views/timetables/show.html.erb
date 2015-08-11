@@ -71,7 +71,7 @@ scheduler.init('scheduler_here', new Date(),"timeline");
 <% ttusers.each do |user| -%>
   <% for i in issues_for_user(user.id, @project) -%>
     <% if User.current.allowed_to?(:view_issues, i.project) && i.start_date && i.due_date %> 
-<%= raw "{ start_date: \"#{i.start_date}\", end_date: \"#{i.due_date}\", text:\"##{i.id}: "%><%="#{i.subject} (#{i.project.name})"%><%= raw "\", section_id:#{user.id}},\n" =%>
+<%= raw "{ start_date: \"#{i.start_date}\", end_date: \"#{i.due_date+1}\", text:\"##{i.id}: "%><%="#{i.subject} (#{i.project.name})"%><%= raw "\", section_id:#{user.id}},\n" =%>
 	  <% end %>
   <% end %>
 <% end %>

@@ -10,7 +10,7 @@ The overall schedule is available as a new view in the Administration section of
 
 ==Compatibility
 
-This plugin has been tested on redmine v 2.3 and 2.5.
+This plugin has been tested on redmine v 2.3, 2.5 and 3.0.
 
 ==Obtaining 
 
@@ -23,7 +23,10 @@ The source of this plugin can be "cloned" from the GitHub-repo using:
 ==Installation
 
 - Download the plugin from the available source (see "Obtaining")
-- Restart Redmine
+- stop Redmine
+- bundle exec rake redmine:plugins:migrate RAILS_ENV=production
+- start redmine
+- Add the 'Timetables' module to redmine projects where this functionality is wanted
 
 ==Uninstalling
 
