@@ -40,7 +40,7 @@ module TimetableHelper
   end
 
   def ttusers
-    @project ? @project.users : @users
+    @project ? @project.assignable_users : @users
   end
       
 end
