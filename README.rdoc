@@ -14,11 +14,11 @@ This plugin has been tested on redmine v 2.3, 2.5 and 3.0.
 
 ==Obtaining 
 
-<i>URL of the GitHub repository: http://github.com/nmb-se/redmine_timetables/tree/master</i>
+<i>URL of the GitHub repository: https://github.com/NBISweden/redmine_timetables</i>
 
 The source of this plugin can be "cloned" from the GitHub-repo using:
 
-<tt>$ cd {RAILS_ROOT}/plugins && git clone git://github.com/nmb-se/redmine_timetables.git</tt>
+<tt>$ cd {RAILS_ROOT}/plugins && git clone git://github.com/NBISweden/redmine_timetables.git</tt>
 
 ==Installation
 
@@ -41,6 +41,6 @@ This plugin is open-source and licensed under the "GNU General Public License v2
 
 ==Support
 
-If you would like to report a bug or request a new feature you can open a new issue at the issue-tracking section of the plugins' GitHub site: http://github.com/nmb-se/redmine_timetable/issues.
+If you would like to report a bug or request a new feature you can open a new issue at the issue-tracking section of the plugins' GitHub site: https://github.com/NBISweden/redmine_timetables/issues.
 You can also post your feedback about the plugin in the dedicated plugin-section of the Redmine forums (http://www.redmine.org/projects/redmine/boards/3)
 
