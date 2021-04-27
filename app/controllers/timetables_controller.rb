@@ -18,10 +18,10 @@
 class TimetablesController < ApplicationController
   layout 'ttbase'
 
-  before_filter :find_optional_project
+  before_action :find_optional_project
 
-  #before_filter :require_admin unless params[:project_id]
-  skip_before_filter :find_user
+  #before_action :require_admin unless params[:project_id]
+  skip_before_action :find_user, :raise => false
 
 
   helper :sort
